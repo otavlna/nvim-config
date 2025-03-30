@@ -22,11 +22,26 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
+---@type Lazy
 require("lazy").setup({
+  ---@type LazySpec
   spec = {
     -- import your plugins
-    { "folke/tokyonight.nvim", config = function() vim.cmd.colorscheme "tokyonight" end },
-    { import = "config.plugins" },
+    {
+      "folke/tokyonight.nvim",
+      config = function()
+        vim.cmd.colorscheme("tokyonight")
+      end,
+    },
+    -- {
+    --   "navarasu/onedark.nvim",
+    --   config = function()
+    --     require("onedark").load()
+    --   end,
+    -- },
+    {
+      import = "config.plugins",
+    },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
@@ -34,4 +49,3 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
-
